@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能荆州 - 人工智能与历史文化的交融</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* 全局字体和排版 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ffffff;
+        }
+        
+        /* 标题样式 */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a237e;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.8rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, #1a237e, #5c6bc0);
+            border-radius: 1.5px;
+        }
+        
+        h3 {
+            font-size: 1.6rem;
+            margin-top: 1.8rem;
+            color: #283593;
+            font-weight: 600;
+        }
+        
+        h4 {
+            font-size: 1.3rem;
+            color: #3949ab;
+            font-weight: 600;
+        }
+        
+        /* 段落样式 */
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #424242;
+        }
+        
+        /* 列表样式 */
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
+        /* 横排导航栏样式 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1a237e;
+            padding: 1rem 2rem;
+            color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .nav-links li a:hover {
+            background-color: #3f51b5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* 英雄区样式 */
+        .hero-section {
+            background: #1a237e;
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: #e8eaf6;
+            font-weight: 400;
+        }
+        
+        .hero-visual {
+            margin-top: 4rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .integration-visual {
+            width: 280px;
+            height: 280px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .integration-visual path, .integration-visual circle {
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(2deg); }
+            75% { transform: translateY(15px) rotate(-2deg); }
+        }
+        
+        @keyframes glow {
+            0% { filter: drop-shadow(0 0 5px rgba(255,255,255,0.3)); }
+            100% { filter: drop-shadow(0 0 15px rgba(255,255,255,0.6)); }
+        }
+        
+        /* 容器样式 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* 人工智能部分样式 */
+        .ai-section {
+            background-color: #f5f7fa;
+            padding: 5rem 0;
+        }
+        
+        .ai-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3.5rem;
+        }
+        
+        .ai-card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(26, 35, 126, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1a237e, #5c6bc0);
+        }
+        
+        .ai-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+        }
+        
+        .ai-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .ai-showcase {
+            background-color: white;
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.05);
+            border: 1px solid rgba(26, 35, 126, 0.1);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .ai-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1a237e, #5c6bc0);
+        }
+        
+        .ai-showcase h3 {
+            margin-bottom: 0.5rem;
+            color: #1a237e;
+        }
+        
+        .ai-showcase p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #424242;
+        }
+        
+        /* 案例网格布局样式 */
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .case-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .case-visual {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .case-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        
+        .case-image-placeholder svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .case-card h4 {
+            padding: 1.5rem 1.5rem 0.5rem;
+            margin: 0;
+            color: #1a237e;
+            font-weight: 600;
+        }
+        
+        .case-card p {
+            padding: 0 1.5rem 1.5rem;
+            margin: 0;
+            color: #424242;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .ai-showcase {
+                padding: 2rem 1.5rem;
+            }
+            
+            .case-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 0.5rem;
+            }
+            
+            .case-visual {
+                height: 160px;
+            }
+            
+            .ai-showcase p {
+                margin-bottom: 1.5rem;
+            }
+            
+            .ai-cards,
+            .highlight-items {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .case-grid {
+                gap: 1.5rem;
+                padding: 0;
+            }
+        }
+        
+        .ai-showcase ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .ai-showcase li {
+            padding: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid rgba(26, 35, 126, 0.05);
+        }
+        
+        .ai-showcase li:last-child {
+            border-bottom: none;
+        }
+        
+        .ai-showcase li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            color: #1a237e;
+            font-weight: bold;
+        }
+        
+        /* 荆州文化部分样式 */
+        .jingzhou-section {
+            background-color: #f0f2f5;
+            padding: 5rem 0;
+        }
+        
+        .jingzhou-history {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            border: 1px solid rgba(26, 35, 126, 0.1);
+        }
+        
+        .history-icon {
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+        }
+        
+        .jingzhou-highlights {
+            margin-bottom: 3rem;
+        }
+        
+        .highlight-items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .highlight-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.05);
+            border: 1px solid rgba(26, 35, 126, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1a237e, #5c6bc0);
+        }
+        
+        .highlight-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+        }
+        
+        .ai-culture-integration {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.05);
+            border: 1px solid rgba(26, 35, 126, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-culture-integration::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1a237e, #5c6bc0);
+        }
+        
+        .integration-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .integration-card {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(26, 35, 126, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .integration-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+        
+        .integration-card h4 {
+            margin-top: 0;
+            color: #1a237e;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .integration-icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+        
+        /* 关于我们部分样式 */
+        .about-section {
+            background-color: white;
+            padding: 4rem 0;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* 联系我们部分样式 */
+        .contact-section {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 4rem 0;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        }
+        
+        .contact-info p {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+        
+        button[type="submit"] {
+            background: linear-gradient(90deg, #4a90e2, #3f51b5);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        button[type="submit"]:hover {
+            background: linear-gradient(90deg, #357abd, #303f9f);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+        
+        /* 横排页脚版权区域样式 */
+        footer {
+            background-color: #1a237e;
+            color: white;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .footer-info p {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            margin-bottom: 0;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #bbdefb;
+        }
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .nav-links li a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .hero-section {
+                padding: 4rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .ai-cards,
+            .highlight-items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+            
+            .jingzhou-history {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .ai-brain {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .footer-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .ai-card,
+            .highlight-item {
+                padding: 1.5rem 1rem;
+            }
+            
+            .contact-form,
+            .contact-info {
+                padding: 1.5rem 1rem;
+            }
+        }
+        
+        /* 动画和过渡效果 */
+        section {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        /* 滚动时的平滑效果 */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* 增强可访问性 */
+        a:focus,
+        button:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+        
+        /* 打印样式 */
+        @media print {
+            .navbar,
+            footer,
+            .contact-form button {
+                display: none;
+            }
+            
+            body {
+                font-size: 12pt;
+                color: black;
+            }
+            
+            section {
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* 关于我们部分强化样式 */
+        .about-section {
+            padding: 5rem 0;
+            background-color: #f5f7fa;
+        }
+        
+        .about-content {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid #1a237e;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .about-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .about-text h3 {
+            color: #1a237e;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        /* 联系我们部分强化样式 */
+        .contact-section {
+            padding: 5rem 0;
+        }
+        
+        .contact-info, .contact-form {
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .contact-info:hover, .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-info h3, .contact-form h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #90caf9;
+            box-shadow: 0 0 0 3px rgba(144, 202, 249, 0.2);
+        }
+        
+        .contact-form button {
+            background-color: white;
+            color: #1a237e;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form button:hover {
+            background-color: #e3f2fd;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .about-content,
+            .contact-info,
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .about-section,
+            .contact-section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航区域 - 横排 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">智能荆州</div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#ai">人工智能</a></li>
+                <li><a href="#jingzhou">荆州文化</a></li>
+                <li><a href="#about">关于我们</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main>
+        <!-- 首页部分 -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1>人工智能与荆州文化的完美融合</h1>
+                <p>探索科技与历史的奇妙交汇，感受古今文化的智能传承</p>
+                <div class="hero-visual">
+                    <svg class="integration-visual" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- 荆州古城墙轮廓 -->
+                        <path fill="#e8eaf6" opacity="0.9" d="M60,180 L80,140 L120,120 L180,130 L220,110 L240,140 L260,180 L240,220 L220,250 L180,240 L120,260 L80,230 L60,190 Z" />
+                        <path fill="none" stroke="#ffffff" stroke-width="3" d="M60,180 L80,140 L120,120 L180,130 L220,110 L240,140 L260,180 L240,220 L220,250 L180,240 L120,260 L80,230 L60,190 Z" />
+                        
+                        <!-- 城楼 -->
+                        <rect x="140" y="100" width="20" height="40" fill="#c5cae9" />
+                        <polygon points="135,100 150,70 165,100" fill="#3f51b5" />
+                        <rect x="145" y="110" width="10" height="10" fill="#1a237e" />
+                        <rect x="145" y="125" width="10" height="10" fill="#1a237e" />
+                        
+                        <!-- 人工智能神经网络元素 -->
+                        <g>
+                            <!-- 中心神经元 -->
+                            <circle cx="150" cy="150" r="15" fill="#5c6bc0" />
+                            <circle cx="150" cy="150" r="8" fill="#ffffff" />
+                            
+                            <!-- 第一层级神经元 -->
+                            <circle cx="80" cy="100" r="10" fill="#7986cb" />
+                            <circle cx="220" cy="100" r="10" fill="#7986cb" />
+                            <circle cx="80" cy="200" r="10" fill="#7986cb" />
+                            <circle cx="220" cy="200" r="10" fill="#7986cb" />
+                            
+                            <!-- 第二层级神经元 -->
+                            <circle cx="50" cy="150" r="8" fill="#9fa8da" />
+                            <circle cx="250" cy="150" r="8" fill="#9fa8da" />
+                            
+                            <!-- 神经网络连接 -->
+                            <path fill="none" stroke="#e8eaf6" stroke-width="2" d="M150,150 L80,100 M150,150 L220,100 M150,150 L80,200 M150,150 L220,200 M150,150 L50,150 M150,150 L250,150" />
+                            <path fill="none" stroke="#e8eaf6" stroke-width="1.5" d="M80,100 L50,150 M220,100 L250,150 M80,200 L50,150 M220,200 L250,150" />
+                            
+                            <!-- 连接线动画点 -->
+                            <circle cx="115" cy="125" r="3" fill="#ffffff" opacity="0.7" />
+                            <circle cx="185" cy="125" r="3" fill="#ffffff" opacity="0.7" />
+                            <circle cx="115" cy="175" r="3" fill="#ffffff" opacity="0.7" />
+                            <circle cx="185" cy="175" r="3" fill="#ffffff" opacity="0.7" />
+                        </g>
+                        
+                        <!-- 荆州文化符号 - 简化楚文化元素 -->
+                        <path fill="none" stroke="#ffffff" stroke-width="2" d="M130,180 C135,170 145,170 150,180 M150,180 C155,170 165,170 170,180" />
+                        <circle cx="150" cy="200" r="15" fill="none" stroke="#ffffff" stroke-width="2" />
+                        <path fill="none" stroke="#ffffff" stroke-width="2" d="M140,200 L160,200 M150,190 L150,210" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- 人工智能部分 -->
+        <section id="ai" class="ai-section">
+            <div class="container">
+                <h2>人工智能前沿</h2>
+                <div class="ai-content">
+                    <div class="ai-cards">
+                        <div class="ai-card">
+                            <div class="ai-icon">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="20" y="30" width="60" height="40" rx="5" fill="#4a90e2" />
+                                    <circle cx="40" cy="50" r="5" fill="white" />
+                                    <circle cx="60" cy="50" r="5" fill="white" />
+                                    <path d="M40,70 L60,70" stroke="white" stroke-width="3" stroke-linecap="round" />
+                                </svg>
+                            </div>
+                            <h3>机器学习</h3>
+                            <p>利用先进的机器学习算法，让计算机从数据中学习并做出智能决策，为荆州文化的传承与创新提供技术支持。</p>
+                        </div>
+                        <div class="ai-card">
+                            <div class="ai-icon">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M50,20 L80,40 L80,70 L50,90 L20,70 L20,40 Z" fill="#4a90e2" />
+                                    <path d="M50,30 L70,45 L70,65 L50,80 L30,65 L30,45 Z" fill="#357abd" />
+                                </svg>
+                            </div>
+                            <h3>深度学习</h3>
+                            <p>通过模拟人脑神经网络的深度学习模型，实现对荆州历史文献、文物图像的智能分析与识别，加速文化遗产的数字化保护。</p>
+                        </div>
+                        <div class="ai-card">
+                            <div class="ai-icon">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="50" cy="50" r="30" fill="#4a90e2" />
+                                    <path d="M35,40 Q50,25 65,40 T65,60 Q50,75 35,60 T35,40" fill="white" />
+                                </svg>
+                            </div>
+                            <h3>自然语言处理</h3>
+                            <p>运用自然语言处理技术，对荆州地方志、历史文献进行智能解读和语义分析，提取关键信息并生成数字化知识图谱。</p>
+                        </div>
+                    </div>
+                    <div class="ai-showcase">
+                        <h3>AI应用案例</h3>
+                        <p>我们的人工智能技术已经在多个领域实现了与荆州文化的深度融合：</p>
+                        
+                        <div class="case-grid">
+                            <div class="case-card">
+                                <div class="case-visual">
+                                    <div class="case-image-placeholder" style="background: linear-gradient(135deg, #1a237e 0%, #3f51b5 100%);">
+                                        <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+                                            <!-- 青铜器轮廓 -->
+                                            <path d="M30,30 L70,30 L75,35 C75,45 75,55 75,60 L70,65 L30,65 L25,60 C25,55 25,45 25,35 Z" fill="none" stroke="rgba(255,215,0,0.8)" stroke-width="2"/>
+                                            <!-- 青铜纹饰 -->
+                                            <path d="M35,35 L65,35 M35,45 L65,45 M35,55 L65,55" stroke="rgba(255,215,0,0.6)" stroke-width="1"/>
+                                            <!-- 修复AI扫描线 -->
+                                            <path d="M20,20 L80,20" stroke="#4fc3f7" stroke-width="1" stroke-dasharray="2,2"/>
+                                            <!-- 修复前后对比标记 -->
+                                            <circle cx="20" cy="20" r="3" fill="#4fc3f7"/>
+                                            <!-- 修复后的部分高亮 -->
+                                            <path d="M50,30 L60,30 L65,35 L65,45 L60,50 L50,50 L45,45 L45,35 Z" fill="rgba(76,175,80,0.4)" stroke="rgba(76,175,80,0.8)" stroke-width="1"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h4>文物智能修复系统</h4>
+                                <p>利用AI技术对荆州博物馆出土的楚国青铜器进行智能损伤检测和修复方案生成，修复效率提升40%。</p>
+                            </div>
+                            
+                            <div class="case-card">
+                                <div class="case-visual">
+                                    <div class="case-image-placeholder" style="background: linear-gradient(135deg, #3f51b5 0%, #5c6bc0 100%);">
+                                        <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+                                            <!-- 人物剪影 - 关羽 -->
+                                            <path d="M50,15 L60,30 L65,45 L65,55 C65,65 35,65 35,55 L35,45 L40,30 Z" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
+                                            <!-- 关羽特色 - 红脸 -->
+                                            <circle cx="50" cy="30" r="10" fill="rgba(255,87,34,0.7)" stroke="rgba(255,255,255,0.8)" stroke-width="1"/>
+                                            <!-- 对话气泡 -->
+                                            <path d="M65,20 L85,20 L90,25 L90,45 L85,50 L70,50 L65,40 Z" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
+                                            <!-- 对话内容表示 -->
+                                            <path d="M70,27 L80,27 M70,33 L83,33 M70,39 L77,39" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+                                            <!-- AI连接线 -->
+                                            <path d="M50,55 L50,65 L30,65" stroke="rgba(255,255,255,0.7)" stroke-width="1" stroke-dasharray="2,1"/>
+                                            <!-- AI图标 -->
+                                            <circle cx="30" cy="65" r="5" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+                                            <path d="M28,63 L32,67 M28,67 L32,63" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h4>关羽智能对话系统</h4>
+                                <p>基于历史文献训练的AI对话模型，能够以三国时期关羽的身份与游客互动，讲解荆州历史文化。</p>
+                            </div>
+                            
+                            <div class="case-card">
+                                <div class="case-visual">
+                                    <div class="case-image-placeholder" style="background: linear-gradient(135deg, #5c6bc0 0%, #7986cb 100%);">
+                                        <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+                                            <!-- 城墙轮廓 -->
+                                            <path d="M10,50 L90,50 L88,55 L12,55 Z" fill="rgba(161,136,127,0.7)"/>
+                                            <path d="M10,55 L90,55 L87,60 L13,60 Z" fill="rgba(161,136,127,0.8)"/>
+                                            <path d="M10,60 L90,60 L86,65 L14,65 Z" fill="rgba(161,136,127,0.9)"/>
+                                            <!-- 城墙砖 -->
+                                            <path d="M10,50 L25,50 M35,50 L50,50 M60,50 L75,50" stroke="rgba(161,136,127,1)" stroke-width="1"/>
+                                            <path d="M10,55 L25,55 M35,55 L50,55 M60,55 L75,55" stroke="rgba(161,136,127,1)" stroke-width="1"/>
+                                            <path d="M10,60 L25,60 M35,60 L50,60 M60,60 L75,60" stroke="rgba(161,136,127,1)" stroke-width="1"/>
+                                            <!-- 城垛 -->
+                                            <rect x="20" y="40" width="10" height="10" fill="rgba(161,136,127,1)"/>
+                                            <rect x="50" y="40" width="10" height="10" fill="rgba(161,136,127,1)"/>
+                                            <rect x="80" y="40" width="10" height="10" fill="rgba(161,136,127,1)"/>
+                                            <!-- AR投影的历史场景 -->
+                                            <path d="M30,25 L70,25 L75,30 L75,40 L70,45 L30,45 L25,40 L25,30 Z" fill="none" stroke="#4fc3f7" stroke-width="1.5" stroke-dasharray="3,2"/>
+                                            <!-- 历史人物剪影 -->
+                                            <path d="M35,35 L40,35 L42,42 L38,42 Z" fill="rgba(255,255,255,0.6)"/>
+                                            <path d="M45,35 L50,35 L52,42 L48,42 Z" fill="rgba(255,255,255,0.6)"/>
+                                            <path d="M55,35 L60,35 L62,42 L58,42 Z" fill="rgba(255,255,255,0.6)"/>
+                                            <!-- AR标记点 -->
+                                            <circle cx="25" cy="30" r="1.5" fill="#4fc3f7"/>
+                                            <circle cx="75" cy="30" r="1.5" fill="#4fc3f7"/>
+                                            <circle cx="25" cy="40" r="1.5" fill="#4fc3f7"/>
+                                            <circle cx="75" cy="40" r="1.5" fill="#4fc3f7"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h4>古城墙AR复原展示</h4>
+                                <p>通过增强现实技术，结合AI图像识别，让游客在荆州古城墙上看到历史场景的动态复原和演变过程。</p>
+                            </div>
+                            
+                            <div class="case-card">
+                                <div class="case-visual">
+                                    <div class="case-image-placeholder" style="background: linear-gradient(135deg, #7986cb 0%, #9fa8da 100%);">
+                                        <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+                                            <!-- 书本形状 -->
+                                            <path d="M20,20 L75,20 L80,25 L80,55 L75,60 L20,60 Z" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+                                            <path d="M20,20 L20,60" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+                                            <!-- 文字线条表示 -->
+                                            <path d="M30,30 L70,30 M30,36 L65,36 M30,42 L60,42 M30,48 L55,48" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+                                            <!-- 楚辞特色元素 - 香草图案 -->
+                                            <path d="M60,25 C65,15 75,15 80,25" stroke="#8bc34a" stroke-width="1.5" fill="none"/>
+                                            <path d="M60,25 C65,35 75,35 80,25" stroke="#8bc34a" stroke-width="1.5" fill="none"/>
+                                            <!-- AI分析标记 -->
+                                            <circle cx="65" cy="30" r="3" fill="none" stroke="#ffeb3b" stroke-width="1"/>
+                                            <circle cx="55" cy="36" r="3" fill="none" stroke="#ffeb3b" stroke-width="1"/>
+                                            <circle cx="45" cy="42" r="3" fill="none" stroke="#ffeb3b" stroke-width="1"/>
+                                            <!-- 连接线表示分析过程 -->
+                                            <path d="M65,30 L55,36 L45,42" stroke="#ffeb3b" stroke-width="1" stroke-dasharray="2,1"/>
+                                            <!-- 艺术价值评估可视化 -->
+                                            <path d="M80,40 L85,40 L90,45 L90,55 L85,60 L80,60" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+                                            <path d="M82,42 L88,42 M82,46 L88,46 M82,50 L88,50 M82,54 L86,54" stroke="#ff9800" stroke-width="1"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h4>楚辞智能赏析平台</h4>
+                                <p>运用自然语言处理技术，对屈原《楚辞》进行智能分词、语义分析和艺术价值评估，提供沉浸式文学体验。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 荆州文化部分 -->
+        <section id="jingzhou" class="jingzhou-section">
+            <div class="container">
+                <h2>荆州文化瑰宝</h2>
+                <div class="jingzhou-content">
+                    <div class="jingzhou-history">
+                        <div class="history-icon">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30,20 L70,20 L80,30 L80,70 L70,80 L30,80 L20,70 L20,30 Z" fill="#e67e22" />
+                                <path d="M35,30 L65,30 L70,35 L70,65 L65,70 L35,70 L30,65 L30,35 Z" fill="#d35400" />
+                                <path d="M40,40 L60,40" stroke="white" stroke-width="3" />
+                                <path d="M40,50 L60,50" stroke="white" stroke-width="3" />
+                                <path d="M40,60 L50,60" stroke="white" stroke-width="3" />
+                            </svg>
+                        </div>
+                        <h3>历史渊源</h3>
+                        <p>荆州历史悠久，是中国历史文化名城，古称江陵，是楚文化的发源地之一。作为三国时期的军事重镇，荆州在中国历史上占有重要地位，拥有丰富的历史文化遗产。</p>
+                    </div>
+                    
+                    <div class="jingzhou-highlights">
+                        <h3>文化亮点</h3>
+                        <div class="highlight-items">
+                            <div class="highlight-item">
+                                <h4>楚文化</h4>
+                                <p>荆州是楚文化的核心区域，孕育了灿烂的青铜文化、漆器艺术和楚辞文学。</p>
+                            </div>
+                            <div class="highlight-item">
+                                <h4>三国文化</h4>
+                                <p>"刘备借荆州"、"关羽大意失荆州"等历史典故发生于此，三国文化底蕴深厚。</p>
+                            </div>
+                            <div class="highlight-item">
+                                <h4>古城墙</h4>
+                                <p>荆州古城墙是中国现存最完整的古城墙之一，被誉为"江南第一城墙"。</p>
+                            </div>
+                            <div class="highlight-item">
+                                <h4>非物质文化遗产</h4>
+                                <p>荆州拥有丰富的非物质文化遗产，如荆州花鼓戏、楚剧等传统艺术形式。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-culture-integration">
+                        <h3>AI与荆州文化融合</h3>
+                        <p>我们将先进的人工智能技术与悠久的荆州文化深度融合，创造全新的文化体验和保护方式：</p>
+                        
+                        <div class="integration-showcase">
+                            <div class="integration-card">
+                                <h4>
+                                    <svg class="integration-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#1a237e" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,7H13V9H11V7M11,11H13V17H11V11Z" />
+                                    </svg>
+                                    文物数字孪生
+                                </h4>
+                                <p>利用AI三维扫描和重建技术，为荆州博物馆珍贵文物创建1:1数字孪生模型，实现高精度数字化保存和虚拟展示。</p>
+                            </div>
+                            
+                            <div class="integration-card">
+                                <h4>
+                                    <svg class="integration-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#1a237e" d="M12,3C16.97,3 21,6.58 21,11C21,15.42 16.97,19 12,19C7.03,19 3,15.42 3,11C3,6.58 7.03,3 12,3M12,5C8.14,5 5,8.14 5,12C5,15.86 8.14,19 12,19C15.86,19 19,15.86 19,12C19,8.14 15.86,5 12,5M11,7H13V13H11V7M11,15H13V17H11V15Z" />
+                                    </svg>
+                                    楚城AI复原
+                                </h4>
+                                <p>基于历史文献和考古数据，使用深度学习算法智能复原楚国都城纪南城的城市布局、建筑风貌和生活场景，重现楚文化鼎盛时期的辉煌。</p>
+                            </div>
+                            
+                            <div class="integration-card">
+                                <h4>
+                                    <svg class="integration-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#1a237e" d="M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4C22,2.89 21.1,2 20,2Z" />
+                                    </svg>
+                                    历史人物对话
+                                </h4>
+                                <p>开发基于自然语言处理的智能对话系统，让用户能够与历史人物如关羽、诸葛亮等进行沉浸式对话，深入了解三国时期荆州的历史故事。</p>
+                            </div>
+                            
+                            <div class="integration-card">
+                                <h4>
+                                    <svg class="integration-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#1a237e" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
+                                    </svg>
+                                    文化旅游推荐
+                                </h4>
+                                <p>基于用户兴趣和历史背景，使用机器学习算法提供个性化的荆州文化旅游路线推荐，包括最佳参观时间、文化讲解和互动体验。</p>
+                            </div>
+                            
+                            <div class="integration-card">
+                                <h4>
+                                    <svg class="integration-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#1a237e" d="M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4C22,2.89 21.1,2 20,2Z" />
+                                    </svg>
+                                    方言保护工程
+                                </h4>
+                                <p>使用语音识别和自然语言处理技术，记录、分析和保护荆州方言，建立方言数据库和语音合成系统，促进地方语言文化的传承。</p>
+                            </div>
+                            
+                            <div class="integration-card">
+                                <h4>
+                                    <svg class="integration-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#1a237e" d="M19,3H5C3.9,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.9 20.1,3 19,3M19,5V19H5V5H19M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10Z" />
+                                    </svg>
+                                    文物智能修复
+                                </h4>
+                                <p>AI算法分析文物损伤情况，预测最适合的修复方案，辅助文物修复专家进行精确修复，提高修复效率和精度。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于我们部分 -->
+        <section id="about" class="about-section" style="background-color: #f5f7fa;">
+            <div class="container">
+                <h2>关于我们</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>我们的使命</h3>
+                        <p>智能荆州致力于通过人工智能技术推动荆州传统文化的创新传承与发展，让古老的文化遗产在数字时代焕发新的生机与活力。</p>
+                        <h3>我们的团队</h3>
+                        <p>我们拥有一支由人工智能专家、文化学者、设计师和工程师组成的跨学科团队，共同探索科技与文化融合的无限可能。</p>
+                        <h3>我们的愿景</h3>
+                        <p>成为人工智能与传统文化融合的引领者，打造具有全球影响力的数字文化平台，让荆州文化走向世界。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系我们部分 -->
+        <section id="contact" class="contact-section" style="background-color: #1a237e; color: white;">
+            <div class="container">
+                <h2>联系我们</h2>
+                <div class="contact-content">
+                    <div class="contact-info" style="background-color: rgba(255, 255, 255, 0.1); color: white;">
+                        <h3>联系方式</h3>
+                        <p><strong>地址：</strong>湖北省荆州市荆州区</p>
+                        <p><strong>电话：</strong>0716-12345678</p>
+                        <p><strong>邮箱：</strong>info@smartjingzhou.com</p>
+                    </div>
+                    <div class="contact-form" style="background-color: rgba(255, 255, 255, 0.1); color: white;">
+                        <h3>留言反馈</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="name" style="color: white;">姓名</label>
+                                <input type="text" id="name" placeholder="请输入您的姓名" style="background-color: rgba(255, 255, 255, 0.9);">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" style="color: white;">邮箱</label>
+                                <input type="email" id="email" placeholder="请输入您的邮箱" style="background-color: rgba(255, 255, 255, 0.9);">
+                            </div>
+                            <div class="form-group">
+                                <label for="message" style="color: white;">留言</label>
+                                <textarea id="message" rows="4" placeholder="请输入您的留言" style="background-color: rgba(255, 255, 255, 0.9);"></textarea>
+                            </div>
+                            <button type="submit">提交</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚版权区域 - 横排 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>&copy; 2024 智能荆州. 保留所有权利.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">隐私政策</a>
+                <a href="#">使用条款</a>
+                <a href="#">网站地图</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
